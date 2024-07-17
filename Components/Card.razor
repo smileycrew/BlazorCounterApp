@@ -1,0 +1,42 @@
+<div class="card @(locked ? "card--limit" : "")">
+    <Title locked="@locked" />
+
+    <Count count="@count" />
+
+    <ResetButton OnClick="ResetCount" />
+
+    <div class="button-container">
+        <CountButton Disabled="@(count <= 0 || locked)" OnClick="DecrementCount" Type="-" />
+        <CountButton Disabled="@locked" OnClick="IncrementCount" Type="+" />
+    </div>
+</div>
+
+@code
+{
+    private int count = 0;
+
+    private bool locked
+    {
+        get
+        {
+            bool isLocked = false;
+
+            if (count == 50) isLocked = true;
+
+            return isLocked;
+        }
+    }
+
+    private void DecrementCount()
+    {
+        count--;
+    }
+    private void IncrementCount()
+    {
+        count++;
+    }
+    private void ResetCount()
+    {
+        count = 0;
+    }
+}

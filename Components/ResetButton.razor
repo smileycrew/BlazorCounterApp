@@ -1,0 +1,7 @@
+<button class="reset-btn" @onclick="OnClick">Reset</button>
+
+@code
+{
+    [Parameter]
+    public Action OnClick { get; set; } = () => { Console.WriteLine("Click"); };
+}

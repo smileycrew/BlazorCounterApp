@@ -1,0 +1,24 @@
+<h1 class="title">@title</h1>
+
+<small class="made-by">@(locked ? "" : "by Edwin Moz")</small>
+
+@code
+{
+    [Parameter]
+    public bool locked { get; set; } = false;
+
+    public string title
+    {
+        get
+        {
+            if (locked)
+            {
+                return "Limit reached!";
+            }
+            else
+            {
+                return "Blazor Counter";
+            }
+        }
+    }
+}

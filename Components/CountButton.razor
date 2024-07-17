@@ -1,0 +1,14 @@
+<button class="count-btn" disabled="@Disabled" @onclick="OnClick">
+    <p class="count-btn-icon">@Type</p>
+</button>
+
+@code
+{
+    [Parameter]
+    public Action OnClick { get; set; } = () => { Console.WriteLine("Click"); };
+
+    [Parameter]
+    public bool Disabled { get; set; } = false;
+    [Parameter]
+    public string Type { get; set; } = "";
+}
